@@ -5,7 +5,7 @@
       <p class="title is-2">Quotes</p>
 
       <!-- Progress bar -->
-      <ProgressBar :count="totalQuote" />
+      <ProgressBar :count="quotes.length" />
 
       <!-- Input Field -->
       <NewQuote @quoteAdded="addQuote"/>
@@ -38,12 +38,12 @@ export default {
       // quote argument will pass automatically by VueJs
       // in line 8 , another way can use  @quoteAdded="addQuote($event)"
       // but it unnecessary !
-      this.quotes.push(quote);
-    }
-  },
-  computed: {
-    totalQuote() {
-      return this.quotes.length
+      if (this.quotes.length >= this.maxQuote) {
+        return alert("Please delete quote first!")
+      } else if (quote) {
+        // quote is not empty
+        this.quotes.push(quote);
+      }
     }
   },
   components: {

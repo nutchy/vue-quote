@@ -4,7 +4,7 @@
       <div class="field">
         <div class="control">
           <input class="input is-large"
-            type="text" placeholder="Large input"
+            type="text" placeholder="Type your quote :)"
             v-model="inputText" @keypress.enter="addQuote">
         </div>
       </div>
