@@ -4,11 +4,18 @@
       <!-- Heading -->
       <p class="title is-2">Quotes</p>
 
+      <!-- Progress bar -->
+      <ProgressBar :count="totalQuote" />
+
       <!-- Input Field -->
       <NewQuote @quoteAdded="addQuote"/>
 
       <!-- Show all quotes -->
       <QuoteGrid :quotes="quotes"/>
+
+      <div class="notification is-danger">
+        Delete each card by <strong>double click!</strong>
+      </div>
     </div>
   </div>
 </template>
@@ -16,6 +23,7 @@
 <script>
 import QuoteGrid from './components/QuoteGrid'
 import NewQuote from './components/NewQuote'
+import ProgressBar from './components/ProgressBar'
 
 export default {
   name: 'App',
@@ -33,9 +41,15 @@ export default {
       this.quotes.push(quote);
     }
   },
+  computed: {
+    totalQuote() {
+      return this.quotes.length
+    }
+  },
   components: {
     QuoteGrid,
-    NewQuote
+    NewQuote,
+    ProgressBar
   }
 }
 </script>
