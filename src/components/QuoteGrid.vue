@@ -1,12 +1,19 @@
 <template>
-  <div class="columns">
-    <slot></slot>
+  <div class="columns is-multiline">
+    <Quote v-for="(quote, index) in quotes" :key="index">
+          {{ quote }}
+    </Quote>
   </div>
 </template>
 
 <script>
-export default {
+import Quote from './Quote'
 
+export default {
+  props: ['quotes'],
+  components: {
+    Quote
+  }
 }
 </script>
 

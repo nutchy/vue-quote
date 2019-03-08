@@ -18,15 +18,12 @@
       </div>
 
       <!-- Show all quotes -->
-      <QuoteGrid>
-        <Quote :text="quotes[0]"/>
-      </QuoteGrid>
+      <QuoteGrid :quotes="quotes"/>
     </div>
   </div>
 </template>
 
 <script>
-import Quote from './components/Quote'
 import QuoteGrid from './components/QuoteGrid'
 
 export default {
@@ -35,7 +32,7 @@ export default {
     return {
       inputText: '',
       maxQuote: 10,
-      quotes: ['Hello World']
+      quotes: ['Hello']
     }
   },
   methods: {
@@ -44,7 +41,6 @@ export default {
     }
   },
   components: {
-    Quote,
     QuoteGrid
   }
 }
