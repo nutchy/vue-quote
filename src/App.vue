@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <QuoteGrid>
+      <Quote :text="quotes[0]"/>
+    </QuoteGrid>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Quote from './components/Quote'
+import QuoteGrid from './components/QuoteGrid'
 
 export default {
   name: 'App',
+  data: () => {
+    return {
+      maxQuote: 10,
+      quotes: ['Hello World']
+    }
+  },
   components: {
-    HelloWorld
+    Quote,
+    QuoteGrid
   }
 }
 </script>
