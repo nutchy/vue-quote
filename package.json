@@ -1,7 +1,7 @@
 {
-  "name": "vue-cli",
+  "name": "Vue-Quote",
   "description": "A Vue.js project",
-  "author": "Maximilian Schwarzmüller <mblacky0@gmail.com>",
+  "author": "Chayanon.T <58070021@kmitl.ac.th>",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
