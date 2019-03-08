@@ -5,17 +5,7 @@
       <p class="title is-2">Quotes</p>
 
       <!-- Input Field -->
-      <div class="columns">
-        <div class="column is-half is-offset-3">
-          <div class="field">
-            <div class="control">
-              <input class="input is-large"
-                type="text" placeholder="Large input"
-                v-model="inputText" @keypress.enter="addQuote">
-            </div>
-          </div>
-        </div>
-      </div>
+      <NewQuote @quoteAdded="addQuote"/>
 
       <!-- Show all quotes -->
       <QuoteGrid :quotes="quotes"/>
@@ -25,23 +15,27 @@
 
 <script>
 import QuoteGrid from './components/QuoteGrid'
+import NewQuote from './components/NewQuote'
 
 export default {
   name: 'App',
   data: () => {
     return {
-      inputText: '',
       maxQuote: 10,
       quotes: ['Hello']
     }
   },
   methods: {
-    addQuote() {
-      this.quotes.unshift(this.inputText);
+    addQuote(quote) {
+      // quote argument will pass automatically by VueJs
+      // in line 8 , another way can use  @quoteAdded="addQuote($event)"
+      // but it unnecessary !
+      this.quotes.push(quote);
     }
   },
   components: {
-    QuoteGrid
+    QuoteGrid,
+    NewQuote
   }
 }
 </script>
