@@ -1,8 +1,27 @@
 <template>
   <div id="app">
-    <QuoteGrid>
-      <Quote :text="quotes[0]"/>
-    </QuoteGrid>
+    <div class="container">
+      <!-- Heading -->
+      <p class="title is-2">Quotes</p>
+
+      <!-- Input Field -->
+      <div class="columns">
+        <div class="column is-half is-offset-3">
+          <div class="field">
+            <div class="control">
+              <input class="input is-large"
+                type="text" placeholder="Large input"
+                v-model="inputText" @keypress.enter="addQuote">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show all quotes -->
+      <QuoteGrid>
+        <Quote :text="quotes[0]"/>
+      </QuoteGrid>
+    </div>
   </div>
 </template>
 
@@ -14,8 +33,14 @@ export default {
   name: 'App',
   data: () => {
     return {
+      inputText: '',
       maxQuote: 10,
       quotes: ['Hello World']
+    }
+  },
+  methods: {
+    addQuote() {
+      this.quotes.unshift(this.inputText);
     }
   },
   components: {

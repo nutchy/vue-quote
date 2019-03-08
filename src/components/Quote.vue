@@ -1,6 +1,8 @@
 <template>
-  <div>
-    {{ text }}
+  <div class="column is-3">
+    <div class="box">
+      {{ text }}
+    </div>
   </div>
 </template>
 
